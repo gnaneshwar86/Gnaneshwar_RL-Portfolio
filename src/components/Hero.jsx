@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import InteractiveTerminal from './Terminal';
 
 const containerVariants = {
@@ -40,13 +41,13 @@ const Hero = () => {
 
                 <motion.div variants={fadeUp} className="my-6">
                     <h3
-                        className="text-[2.5rem] md:text-[2rem] leading-[1.5] font-bold clip-text-selection"
+                        className="text-[1.8rem] sm:text-[2rem] md:text-[2.5rem] leading-[1.3] font-bold clip-text-selection"
                         style={{ color: 'var(--text-color)' }}
                     >
                         Designing and building scalable software systems.
                     </h3>
                     <h3
-                        className="text-[2.5rem] md:text-[2rem] leading-[1.2] font-bold clip-text-selection"
+                        className="text-[1.5rem] sm:text-[1.8rem] md:text-[2rem] leading-[1.3] font-bold clip-text-selection mt-2"
                         style={{ color: 'var(--text-color)' }}
                     >
                         Focused on performance, reliability, and clean architecture.
@@ -58,22 +59,35 @@ const Hero = () => {
                 </motion.div>
 
                 <motion.div variants={fadeUp} className="flex flex-col items-center gap-6 mt-2">
-                    <motion.a
-                        href="#contact"
-                        onClick={(e) => {
-                            e.preventDefault();
-                            document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                        }}
-                        className="inline-block px-8 py-3 rounded-full uppercase text-[0.82rem] font-bold w-[80%] md:w-auto text-center"
-                        style={{
-                            backgroundColor: 'var(--bg-secondary)',
-                            color: 'var(--bg-primary)',
-                            transition: 'opacity 0.3s',
-                        }}
-                        whileHover={{ opacity: 0.85 }}
-                    >
-                        Connect With Me
-                    </motion.a>
+                    <div className="flex flex-col sm:flex-row items-center gap-4 w-full justify-center">
+                        <motion.a
+                            href="#contact"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                            }}
+                            className="inline-block px-8 py-3 rounded-full uppercase text-[0.82rem] font-bold w-[240px] text-center"
+                            style={{
+                                backgroundColor: 'var(--bg-secondary)',
+                                color: 'var(--bg-primary)',
+                                transition: 'opacity 0.3s',
+                            }}
+                            whileHover={{ opacity: 0.85 }}
+                        >
+                            Connect With Me
+                        </motion.a>
+
+                        <Link
+                            to="/resume"
+                            className="inline-flex sm:hidden items-center justify-center px-8 py-3 rounded-full uppercase text-[0.82rem] font-bold w-[240px] text-center transition-all border-2 hover:bg-[var(--bg-secondary)] hover:text-[var(--bg-primary)]"
+                            style={{
+                                borderColor: 'var(--bg-secondary)',
+                                color: 'var(--bg-secondary)',
+                            }}
+                        >
+                            View Resume
+                        </Link>
+                    </div>
 
                     <div className="flex gap-6 text-[2.5rem]" style={{ color: 'var(--text-color)' }}>
                         <a href="https://linkedin.com/in/gnaneshwar86" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--primary-color)] transition-colors hover:scale-110 transform duration-300">

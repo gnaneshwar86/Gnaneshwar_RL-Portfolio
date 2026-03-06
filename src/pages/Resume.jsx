@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, useAnimation } from 'framer-motion';
 
 const ResumePage = () => {
@@ -18,15 +19,25 @@ const ResumePage = () => {
 
     return (
         <motion.div
-            className="container mx-auto px-4 md:px-8 max-w-[900px] py-24 mb-20"
+            className="container mx-auto px-4 md:px-8 max-w-[900px] pt-32 pb-24 mb-20"
             initial="hidden"
             animate="visible"
         >
+            {/* ── BACK BUTTON ── */}
+            <motion.div variants={fadeUp} custom={0} className="mb-8 relative z-10">
+                <Link
+                    to="/"
+                    className="inline-flex items-center gap-2 text-[0.95rem] font-bold text-[var(--text-color)] hover:text-[var(--primary-color)] transition-colors"
+                >
+                    <i className="fas fa-arrow-left" /> Back to Home
+                </Link>
+            </motion.div>
+
             {/* ── HEADER ── */}
-            <motion.div variants={fadeUp} custom={0} className="mb-12">
+            <motion.div variants={fadeUp} custom={1} className="mb-12">
                 <div className="flex flex-col md:flex-row md:justify-between md:items-end border-b pb-8" style={{ borderColor: 'var(--card-background)' }}>
                     <div>
-                        <h1 className="text-[3rem] font-bold leading-none clip-text-selection" style={{ color: 'var(--text-color)' }}>
+                        <h1 className="text-[1.8rem] sm:text-[2.2rem] md:text-[3rem] font-bold leading-none clip-text-selection" style={{ color: 'var(--text-color)' }}>
                             Gnaneshwar R L
                         </h1>
                         <h2 className="text-[1.2rem] mt-2 font-semibold" style={{ color: 'var(--primary-color)' }}>
@@ -51,8 +62,8 @@ const ResumePage = () => {
             </motion.div>
 
             {/* ── LINKS ── */}
-            <motion.div variants={fadeUp} custom={1} className="mb-12">
-                <div className="flex gap-4">
+            <motion.div variants={fadeUp} custom={2} className="mb-12">
+                <div className="flex flex-col sm:flex-row gap-4">
                     <a href="https://linkedin.com/in/gnaneshwar86" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-[0.95rem] font-medium hover:text-[var(--primary-color)] transition-colors" style={{ color: 'var(--text-color)' }}>
                         <i className="fab fa-linkedin text-[1.2rem]" /> linkedin.com/in/gnaneshwar86
                     </a>
@@ -63,7 +74,7 @@ const ResumePage = () => {
             </motion.div>
 
             {/* ── SUMMARY ── */}
-            <motion.section variants={fadeUp} custom={2} className="mb-16">
+            <motion.section variants={fadeUp} custom={3} className="mb-16">
                 <h3 className="text-[1.5rem] font-bold mb-4 uppercase tracking-wide border-b-2 inline-block pb-1" style={{ color: 'var(--text-color)', borderColor: 'var(--primary-color)' }}>
                     Summary
                 </h3>
@@ -75,7 +86,7 @@ const ResumePage = () => {
             </motion.section>
 
             {/* ── SKILLS ── */}
-            <motion.section variants={fadeUp} custom={3} className="mb-16">
+            <motion.section variants={fadeUp} custom={4} className="mb-16">
                 <h3 className="text-[1.5rem] font-bold mb-6 uppercase tracking-wide border-b-2 inline-block pb-1" style={{ color: 'var(--text-color)', borderColor: 'var(--primary-color)' }}>
                     Skills
                 </h3>
@@ -110,7 +121,7 @@ const ResumePage = () => {
             </motion.section>
 
             {/* ── EDUCATION ── */}
-            <motion.section variants={fadeUp} custom={4} className="mb-16">
+            <motion.section variants={fadeUp} custom={5} className="mb-16">
                 <h3 className="text-[1.5rem] font-bold mb-6 uppercase tracking-wide border-b-2 inline-block pb-1" style={{ color: 'var(--text-color)', borderColor: 'var(--primary-color)' }}>
                     Education
                 </h3>
@@ -127,7 +138,7 @@ const ResumePage = () => {
             </motion.section>
 
             {/* ── PROJECTS ── */}
-            <motion.section variants={fadeUp} custom={5} className="mb-16">
+            <motion.section variants={fadeUp} custom={6} className="mb-16">
                 <h3 className="text-[1.5rem] font-bold mb-6 uppercase tracking-wide border-b-2 inline-block pb-1" style={{ color: 'var(--text-color)', borderColor: 'var(--primary-color)' }}>
                     Projects
                 </h3>
@@ -157,7 +168,7 @@ const ResumePage = () => {
             </motion.section>
 
             {/* ── ACHIEVEMENTS ── */}
-            <motion.section variants={fadeUp} custom={6}>
+            <motion.section variants={fadeUp} custom={7}>
                 <h3 className="text-[1.5rem] font-bold mb-6 uppercase tracking-wide border-b-2 inline-block pb-1" style={{ color: 'var(--text-color)', borderColor: 'var(--primary-color)' }}>
                     Achievements
                 </h3>
@@ -174,7 +185,7 @@ const ResumePage = () => {
             {/* ── PDF VIEWER ── */}
             <motion.div
                 variants={fadeUp}
-                custom={7}
+                custom={8}
                 className="mt-16"
                 style={{
                     borderRadius: 12,
@@ -183,7 +194,7 @@ const ResumePage = () => {
                     boxShadow: "0 10px 30px rgba(0, 0, 0, 0.5)"
                 }}
             >
-                <div className="bg-[#1a1a1a] px-4 py-3 flex justify-between items-center border-b border-[rgba(255,255,255,0.1)]">
+                <div className="bg-[#1a1a1a] px-4 py-3 flex flex-wrap justify-between items-center gap-2 border-b border-[rgba(255,255,255,0.1)]">
                     <span className="text-[0.9rem] font-semibold flex items-center gap-2" style={{ color: "var(--text-color)" }}>
                         <i className="fas fa-file-pdf text-red-500"></i> Resume Preview
                     </span>
@@ -200,9 +211,9 @@ const ResumePage = () => {
                     src="/assets/Gnaneshwar_RL_Resume.pdf#navpanes=0&scrollbar=0&view=FitH"
                     title="Gnaneshwar R L Resume"
                     scrolling="no"
+                    className="h-[600px] sm:h-[800px] md:h-[1250px]"
                     style={{
                         width: "100%",
-                        height: "1250px",
                         border: "none",
                         background: "#111",
                         overflow: "hidden"
